@@ -1,0 +1,19 @@
+.wrapp {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.wrapp .main {
+    flex: 1;
+    background-color: #f2f3f7;
+}
+.wrapp .header,
+.wrapp .footer {
+    height: 64px;
+    background-color: #414452;
+}
+
+.wrapp .header {
+    color: #ffffff;
+}
