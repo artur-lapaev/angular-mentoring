@@ -14,6 +14,18 @@
     background-color: #414452;
 }
 
+.wrapp .header,
+.wrapp .breadcrumbs,
+.wrapp .main,
+.wrapp .footer {
+    padding-right: 85px;
+    padding-left: 85px;
+} 
+
 .wrapp .header {
+    display: flex;
+    align-items: center;
     color: #ffffff;
+    padding-right: 39px;
 }
+
