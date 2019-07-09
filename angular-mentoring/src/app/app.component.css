@@ -25,6 +25,7 @@
 .wrapp .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     color: #ffffff;
     padding-right: 39px;
 }
