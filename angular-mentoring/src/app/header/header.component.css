@@ -31,3 +31,7 @@
     vertical-align: top;
     margin-left: 5px;
 }
+
+.header__user .log-off__btn:hover {
+    cursor: pointer;
+}
