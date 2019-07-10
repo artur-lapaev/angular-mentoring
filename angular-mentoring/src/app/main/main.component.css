@@ -32,7 +32,9 @@
     z-index: 2;
     transform: rotate(90deg);
 }
-
+.box-shadow--none {
+    box-shadow: none;
+}
 .search__button {
     margin-left: 10px;
     color: white;
@@ -43,4 +45,41 @@
 
 .search__button.search__button--color-green {
     background-color: #24d627;
-}   
+}
+
+.main__add-course {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+}
+
+.add__button {
+    padding-left: 5px;
+    width: 138px;
+    height: 36px;
+    border-radius: 3px;
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.57;
+    letter-spacing: -0.1px;
+}
+
+.add__button,
+.add__button i {
+    color: white
+}
+
+.add__button i {
+    margin-top: -8px;
+    padding-right: 15px;
+    width: 18px;
+    height: 18px;
+}
+
+.add__button.add__button--color-blue {
+    background-color: #61a7f9ee;
+}
