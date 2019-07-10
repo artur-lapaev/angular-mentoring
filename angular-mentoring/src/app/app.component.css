@@ -36,3 +36,9 @@
     height: 64px;
     background-color: #ffffff;
 }
+
+.wrapp .footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
