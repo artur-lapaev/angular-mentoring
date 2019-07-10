@@ -13,7 +13,7 @@
     z-index: 1;
 }
 .main__search .search__input input::placeholder {
-    font-family: SourceSansPro;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
@@ -59,7 +59,7 @@
     width: 138px;
     height: 36px;
     border-radius: 3px;
-    font-family: SourceSansPro;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px;
     font-weight: 600;
     font-style: normal;
