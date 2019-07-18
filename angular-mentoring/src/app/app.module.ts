@@ -11,6 +11,8 @@ import { CoursesComponent } from './coursesPage/courses/courses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
+import { SearchComponent } from './coursesPage/search/search.component';
+import { LoadMoreComponent } from './coursesPage/load-more/load-more.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MatIconModule } from '@angular/material/icon';
     CoursesPageComponent,
     FooterComponent,
     BreadcrumbsComponent,
-    CoursesComponent
+    CoursesComponent,
+    SearchComponent,
+    LoadMoreComponent
   ],
   imports: [
     BrowserModule,
