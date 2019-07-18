@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, OnChanges, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'courses',
@@ -7,13 +7,14 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
   @Input() courses: Array<Object>;
+  @Output() deleteCourse = new EventEmitter<any>();
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ngOnChanges(){ }
+
+  removeCourse(id) {
+    this.deleteCourse.emit("course was removed by id: " + id);
   }
-
-  ngOnChanges(){
-
-  }
-
 }
