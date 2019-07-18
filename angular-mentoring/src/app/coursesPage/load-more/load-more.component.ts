@@ -12,4 +12,8 @@ export class LoadMoreComponent implements OnInit {
   ngOnInit() {
   }
 
+  loadMoreCourses() {
+    return console.log("courses is loading")
+  }
+
 }
