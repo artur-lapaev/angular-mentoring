@@ -1,28 +1,28 @@
-.wrapp {
+:host {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
 
-.wrapp .main {
+.courses-page {
     flex: 1;
     background-color: #f2f3f7;
 }
-.wrapp .header,
-.wrapp .footer {
+.header,
+.footer {
     height: 64px;
     background-color: #414452;
 }
 
-.wrapp .header,
-.wrapp .breadcrumbs,
-.wrapp .main,
-.wrapp .footer {
+.header,
+.breadcrumbs,
+.courses-page,
+.footer {
     padding-right: 85px;
     padding-left: 85px;
 } 
 
-.wrapp .header {
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,14 +30,14 @@
     padding-right: 39px;
 }
 
-.wrapp .breadcrumbs {
+.breadcrumbs {
     display: flex;
     align-items: center;
     height: 64px;
     background-color: #ffffff;
 }
 
-.wrapp .footer {
+.footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;

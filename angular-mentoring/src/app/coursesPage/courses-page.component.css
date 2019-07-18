@@ -1,8 +1,8 @@
-.main__search {
+.courses-page__search {
     display: flex;
     margin-top: 20px;
 }
-.main__search .search__input input {
+.courses-page__search .search__input input {
     position: relative;
     width: 360px;
     height: 48px;
@@ -12,7 +12,7 @@
     padding-left: 40px;
     z-index: 1;
 }
-.main__search .search__input input::placeholder {
+.courses-page__search .search__input input::placeholder {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px;
     font-weight: normal;
@@ -22,7 +22,7 @@
     letter-spacing: 0.22px;
     color: #c0c3ce;
 }
-.main__search .search__input i {
+.courses-page__search .search__input i {
     position: absolute;
     margin-top: 13px;
     margin-left: 10px;
@@ -47,7 +47,7 @@
     background-color: #24d627;
 }
 
-.main__add-course {
+.courses-page__add-course {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
