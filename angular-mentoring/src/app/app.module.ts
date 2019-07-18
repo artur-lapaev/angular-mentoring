@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
+import { CoursesPageComponent } from './coursesPage/courses-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
-import { CoursesComponent } from './main/courses/courses.component';
+import { CoursesComponent } from './coursesPage/courses/courses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainComponent,
+    CoursesPageComponent,
     FooterComponent,
     BreadcrumbsComponent,
     CoursesComponent
