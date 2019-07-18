@@ -13,7 +13,7 @@ export class LoadMoreComponent implements OnInit {
   }
 
   loadMoreCourses() {
-    return console.log("courses is loading")
+    return console.log("courses is loading");
   }
 
 }
