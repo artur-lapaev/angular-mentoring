@@ -5,16 +5,20 @@ import { Component, EventEmitter, OnInit, OnChanges, Input, Output } from '@angu
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css']
 })
-export class CoursesComponent implements OnInit {
-  @Input() courses: Array<Object>;
+export class CoursesComponent implements OnChanges {
+  @Input() courses: Object;
   @Output() deleteCourse = new EventEmitter<any>();
+
+  course = {};
+
   constructor() { }
 
-  ngOnInit() { }
+  ngOnChanges() {
+    this.course = this.courses;
+    console.log("on changes");
+  }
 
-  ngOnChanges(){ }
-
-  removeCourse(id) {
-    this.deleteCourse.emit("course was removed by id: " + id);
+  removeCourse() {
+    this.deleteCourse.emit("course was removed by id: ");
   }
 }

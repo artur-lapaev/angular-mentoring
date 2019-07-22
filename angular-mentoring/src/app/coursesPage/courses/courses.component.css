@@ -1,5 +1,4 @@
-.courses-section,
-.courses-load-more {
+.courses-section {
     display: flex;
     box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
     background-color: #ffffff;
@@ -13,13 +12,6 @@
     border-radius: 8px;
 }
 
-.courses-load-more {
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    height: 48px;
-    border-radius: 6px;
-}
 
 .courses-section__content {
     display: flex;

@@ -1,4 +1,4 @@
-<section class="courses-section" *ngFor="let course of courses; let i = index;">
+<section class="courses-section">
     <div class="courses-section__content">
          <div class="content__header">
              <div class="header__caption">
@@ -22,11 +22,8 @@
      <div class="courses-section__edit-tools">
          <button mat-raised-button class="edit-tools__edit-button edit-tools--color-blue box-shadow--none"><i
                  class="material-icons">edit</i>Edit</button>
-         <button (click)="removeCourse(i)" mat-raised-button class="edit-tools__delete-button edit-tools--color-blue box-shadow--none"><i
+         <button (click)="removeCourse()" mat-raised-button class="edit-tools__delete-button edit-tools--color-blue box-shadow--none"><i
                  class="material-icons">delete</i>Delete</button>
      </div>
  </section>
 
-<section class="courses-load-more">
-    <load-more></load-more>
-</section> 

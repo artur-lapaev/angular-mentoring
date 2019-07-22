@@ -38,3 +38,18 @@
 .add-course__button.add-course__button--color-blue {
     background-color: #61a7f9ee;
 }
+
+.courses-page__load-more {
+    display: flex;
+    box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+    background-color: #ffffff;
+}
+
+.courses-page__load-more {
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 48px;
+    border-radius: 6px;
+}
+

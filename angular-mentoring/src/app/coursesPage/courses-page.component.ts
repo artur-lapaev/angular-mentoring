@@ -42,9 +42,8 @@ export class CoursesPageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
+  
   removedCourse($event) {
     console.log($event);
   }
