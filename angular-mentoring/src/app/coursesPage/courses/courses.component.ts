@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, OnChanges, Input, Output } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'am-courses',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, OnChanges, Input, Output } from '@angu
 })
 export class CoursesComponent implements OnChanges {
   @Input() courses: Object;
-  @Output() deleteCourse = new EventEmitter<any>();
+  
 
   course = {};
 
@@ -18,7 +18,7 @@ export class CoursesComponent implements OnChanges {
     console.log("on changes");
   }
 
-  removeCourse() {
-    this.deleteCourse.emit("course was removed by id: ");
+  removedCourse($event) {
+    console.log($event);
   }
 }

@@ -1,2 +1,2 @@
-<am-course-item [courseItem]="courses[i]" *ngFor="let course of courses; let i = index"></am-course-item>
+<am-course-item [courseItem]="courses[i]" *ngFor="let course of courses; let i = index" (deleteCourse)="removedCourse($event)"></am-course-item>
 
