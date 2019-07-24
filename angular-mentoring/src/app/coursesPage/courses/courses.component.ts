@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, OnChanges, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'courses',
+  selector: 'am-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css']
 })

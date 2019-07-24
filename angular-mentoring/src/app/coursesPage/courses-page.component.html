@@ -1,12 +1,12 @@
 <div class="courses-page__search">
-   <search class="search"></search>
+   <am-search class="search"></am-search>
 </div>
 <div class="courses-page__add-course">
     <button mat-raised-button class="add-course__button add-course__button--color-blue box-shadow--none"><i class="material-icons">add</i>Add course</button>
 </div>
 <section class="courses-page__list-courses">
-    <courses *ngFor="let course of coursesData; let i = index;" class="courses" [courses]="coursesData[i]" (deleteCourse)="removedCourse($event)"></courses>
+    <am-courses class="courses" [courses]="coursesData" (deleteCourse)="removedCourse($event)"></am-courses>
 </section>
 <section class="courses-page__load-more">
-    <load-more></load-more>
+    <am-load-more></am-load-more>
 </section> 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'load-more',
+  selector: 'am-load-more',
   templateUrl: './load-more.component.html',
   styleUrls: ['./load-more.component.css']
 })

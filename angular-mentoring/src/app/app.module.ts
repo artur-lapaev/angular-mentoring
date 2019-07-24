@@ -13,6 +13,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchComponent } from './coursesPage/search/search.component';
 import { LoadMoreComponent } from './coursesPage/load-more/load-more.component';
+import { CourseItemComponent } from './coursesPage/courses/course-item/course-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoadMoreComponent } from './coursesPage/load-more/load-more.component';
     BreadcrumbsComponent,
     CoursesComponent,
     SearchComponent,
-    LoadMoreComponent
+    LoadMoreComponent,
+    CourseItemComponent
   ],
   imports: [
     BrowserModule,
