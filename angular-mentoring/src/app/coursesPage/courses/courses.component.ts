@@ -19,6 +19,6 @@ export class CoursesComponent implements OnChanges {
   }
 
   removedCourse($event) {
-    console.log($event);
+    return console.log($event);
   }
 }
