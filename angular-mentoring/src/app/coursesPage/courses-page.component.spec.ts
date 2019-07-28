@@ -5,6 +5,6 @@ describe('CoursesComponent', () => {
     const comp = new CoursesPageComponent();
     const coursesObj = comp.coursesData;
     comp.ngOnInit();
-    expect(comp.coursesData).toEqual(coursesObj,"is not object");
+    expect(comp.coursesData).toEqual(coursesObj, 'should be object');
   });
 });

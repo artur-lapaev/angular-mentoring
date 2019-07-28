@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Course } from '../course';
 
 @Component({
   selector: 'am-courses',
@@ -6,8 +7,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnChanges {
-  @Input() courses: Object;
-  
+  @Input() courses: Course;  
 
   course = {};
 

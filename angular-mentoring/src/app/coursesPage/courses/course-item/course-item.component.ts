@@ -17,7 +17,7 @@ export class CourseItemComponent implements OnInit {
   }
 
   removeCourse() {
-    this.deleteCourse.emit("course was removed by id: ");
+    this.deleteCourse.emit('course was removed by id:');
   }
 
 }
