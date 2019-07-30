@@ -29,6 +29,5 @@ describe('coursesComponent testing input', () => {
     const course = component.course;
     component.ngOnChanges();
     expect(course).toBeTruthy();
-    console.log(course);
   });
 });
