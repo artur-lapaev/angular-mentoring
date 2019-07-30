@@ -7,7 +7,7 @@ import { Course } from '../course';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnChanges {
-  @Input() courses: Course;  
+  @Input() courses: Course;
 
   course = {};
 
@@ -15,7 +15,7 @@ export class CoursesComponent implements OnChanges {
 
   ngOnChanges() {
     this.course = this.courses;
-    console.log("on changes");
+    console.log('on changes');
   }
 
   removedCourse($event) {
