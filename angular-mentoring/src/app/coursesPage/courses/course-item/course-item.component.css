@@ -1,0 +1,104 @@
+.courses-section {
+    display: flex;
+    box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+    background-color: #ffffff;
+}
+
+.courses-section {    
+    margin-top: 12px;
+    padding: 24px;
+    padding-right: 0px;
+    height: calc(163px - 48px);    
+    border-radius: 8px;
+}
+
+
+.courses-section__content {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(85% - 90px);
+    padding-right: 90px;
+}
+
+.courses-section__content .content__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content__header .header__caption h2 {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #2c2f3c;
+}
+
+.content__header .header__time .time,
+.content__header .header__time .date {
+    margin-left: 10px;
+}
+
+.content__header .header__time .time span,
+.content__header .header__time .date span {
+    margin-left: 10px;
+    vertical-align: top;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #b9bdce;
+}
+
+.content__header .header__time span i {
+    width: 14px;
+    height: 16px;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #b9bdce;
+}
+
+.courses-section__edit-tools {
+    display: flex;
+    margin-top: 25px;
+    flex-basis: 15%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.courses-section__edit-tools button {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.83;
+    letter-spacing: -0.09px;
+    width: 75px;
+    height: 24px;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+
+.courses-section__edit-tools button i {
+    width: 18px;
+    height: 18px;
+    font-size: 14px;
+}
+
+.edit-tools--color-blue {
+    background-color: #61a7f9ee;
+}
+.box-shadow--none {
+    box-shadow: none;
+}

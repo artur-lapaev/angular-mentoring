@@ -1,0 +1,37 @@
+.logo {
+    width: 140px;
+    height: 64px;
+    object-fit: contain;
+}
+.header__user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 169px;
+    height: 18px;
+}
+.ic_user {
+    width: 10px;
+    height: 12px;
+    object-fit: contain;
+}
+.ic_exit {
+    width: 16px;
+    height: 12px;
+    object-fit: contain;
+}
+.user__login span,
+.user__log-off span {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.header__user .log-off__btn:hover {
+    cursor: pointer;
+}

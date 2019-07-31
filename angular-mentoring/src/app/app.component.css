@@ -1,0 +1,44 @@
+:host {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.courses-page {
+    flex: 1;
+    background-color: #f2f3f7;
+}
+.header,
+.footer {
+    height: 64px;
+    background-color: #414452;
+}
+
+.header,
+.breadcrumbs,
+.courses-page,
+.footer {
+    padding-right: 85px;
+    padding-left: 85px;
+} 
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    padding-right: 39px;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    background-color: #ffffff;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
