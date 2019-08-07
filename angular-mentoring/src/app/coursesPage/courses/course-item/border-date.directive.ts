@@ -4,7 +4,6 @@ import { AfterViewInit, Directive, ElementRef, Renderer2 } from '@angular/core';
   selector: '[amBorderDate]'
 })
 
-
 export class BorderDateDirective implements AfterViewInit {
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }

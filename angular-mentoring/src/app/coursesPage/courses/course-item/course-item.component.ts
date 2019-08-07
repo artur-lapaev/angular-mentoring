@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
   templateUrl: './course-item.component.html',
   styleUrls: ['./course-item.component.css']
 })
-export class CourseItemComponent{
+export class CourseItemComponent {
 
   @Input() courseItem;
   @Output() deleteCourse = new EventEmitter<any>();
