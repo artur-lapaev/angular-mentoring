@@ -1,8 +1,9 @@
-<section class="courses-section">
+<section class="courses-section" [ngClass]="{topRated: isTopRated}" >
     <div class="courses-section__content">
          <div class="content__header">
              <div class="header__caption">
                  <h2>{{courseItem.caption}}</h2>
+                 <i class="material-icons start-rating">{{ratingStar}}</i>
              </div>
              <div class="header__time">
                  <span class="time">

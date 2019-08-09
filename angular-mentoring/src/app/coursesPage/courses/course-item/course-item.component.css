@@ -4,14 +4,17 @@
     background-color: #ffffff;
 }
 
-.courses-section {    
+.courses-section {
     margin-top: 12px;
     padding: 24px;
     padding-right: 0px;
-    height: calc(163px - 48px);    
+    height: calc(163px - 48px);
     border-radius: 8px;
 }
 
+.courses-section.topRated {
+  border: 4px solid lightgray;
+}
 
 .courses-section__content {
     display: flex;
@@ -24,6 +27,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header__caption {
+  display: flex;
+  align-items: center;
+}
+
+.header__caption .start-rating {
+  margin-left: 10px;
 }
 
 .content__header .header__caption h2 {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,15 +6,25 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
   templateUrl: './course-item.component.html',
   styleUrls: ['./course-item.component.css']
 })
-export class CourseItemComponent {
+export class CourseItemComponent implements OnInit {
 
+
+  constructor() { }
   @Input() courseItem;
   @Output() deleteCourse = new EventEmitter<any>();
 
-  constructor() { }
+  ratingStar = '';
+  isTopRated = false;
+
+  ngOnInit(): void {
+    if (this.isTopRated) {
+      this.ratingStar = 'start';
+    }
+  }
 
   removeCourse() {
     this.deleteCourse.emit('course was removed by id:');
   }
+
 
 }
