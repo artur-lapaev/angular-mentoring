@@ -10,7 +10,7 @@ export class CoursesPageComponent implements OnInit {
   coursesData = [
     {
       id: 1,
-      time: '1h 28 min',
+      time: '5h 28 min',
       date: '9 Nov, 2018',
       caption: 'Video Course 1. Name tag',
       content: `Learn about where you can find course descriptions, what information they

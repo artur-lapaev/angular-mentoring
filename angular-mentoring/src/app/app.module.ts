@@ -15,6 +15,7 @@ import { SearchComponent } from './coursesPage/search/search.component';
 import { LoadMoreComponent } from './coursesPage/load-more/load-more.component';
 import { CourseItemComponent } from './coursesPage/courses/course-item/course-item.component';
 import { BorderDateDirective } from './coursesPage/courses/course-item/border-date.directive';
+import { OrderByPipe } from './coursesPage/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BorderDateDirective } from './coursesPage/courses/course-item/border-da
     SearchComponent,
     LoadMoreComponent,
     CourseItemComponent,
-    BorderDateDirective
+    BorderDateDirective,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
