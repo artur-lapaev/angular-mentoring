@@ -8,11 +8,12 @@
              <div class="header__time">
                  <span class="time">
                      <i class="material-icons">access_time</i>
-                     <span>{{courseItem.time | orderBy}}</span>
+                     <!-- duration pipe here -->
+                     <span>{{courseItem.time | date:'HH:MM a'}}</span>
                  </span>
                  <span class="date">
                      <i class="material-icons">date_range</i>
-                     <span amBorderDate>{{courseItem.date}}</span>
+                     <span amBorderDate>{{courseItem.date | date:'dd MMM, y'}}</span>
                  </span>
              </div>
          </div>

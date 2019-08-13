@@ -1,5 +1,5 @@
 <div class="courses-page__search">
-  <am-search class="search"></am-search>
+  <am-search class="search" (valueSearch)="filterSearch($event)"></am-search>
 </div>
 <div class="courses-page__add-course">
   <button mat-raised-button class="add-course__button add-course__button--color-blue box-shadow--none"><i
@@ -8,7 +8,7 @@
 <section class="courses-page__list-courses">
   <div *ngIf="coursesData.length > 0; then thenBlock; else elseBlock;"></div>
     <ng-template #thenBlock>
-      <am-courses class="courses" [courses]="coursesData"></am-courses>
+      <am-courses class="courses" [courses]="filterCourseData | orderBy"></am-courses>
     </ng-template>
     <ng-template #elseBlock>
       <p>No Data, feel free to add new course</p>

@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'am-courses-page',
   templateUrl: './courses-page.component.html',
   styleUrls: ['./courses-page.component.css']
 })
-export class CoursesPageComponent implements OnInit {
+export class CoursesPageComponent implements OnChanges {
+  // New date() for date property.
+  // property time -> number;
+  dataSearch = '';
+  date1 = new Date('9 Nov, 2018');
+  date2 = new Date('19 Nov, 2018');
+  date3 = new Date('30 dec, 2018');
 
   coursesData = [
     {
       id: 1,
-      time: '5h 28 min',
-      date: '9 Nov, 2018',
+      time: 328,
+      date: this.date1,
       caption: 'Video Course 1. Name tag',
       content: `Learn about where you can find course descriptions, what information they
       include, how they work, and details about various components of a course description. Course descriptions
@@ -21,9 +27,9 @@ export class CoursesPageComponent implements OnInit {
     },
     {
       id: 2,
-      time: '4h 28 min',
-      date: '19 Nov, 2018',
-      caption: 'Video Course 1. Name tag',
+      time: 268,
+      date: this.date2,
+      caption: 'Video Course 2. Name tag',
       content: `Learn about where you can find course descriptions, what information they
       include, how they work, and details about various components of a course description. Course descriptions
       report information about a university or college's classes. They're published both in course catalogs that
@@ -32,9 +38,9 @@ export class CoursesPageComponent implements OnInit {
     },
     {
       id: 3,
-      time: '9h 10 min',
-      date: '30 dec, 2018',
-      caption: 'Video Course 1. Name tag',
+      time: 550,
+      date: this.date3,
+      caption: 'Video Course 3. Name tag',
       content: `Learn about where you can find course descriptions, what information they
       include, how they work, and details about various components of a course description. Course descriptions
       report information about a university or college's classes. They're published both in course catalogs that
@@ -43,8 +49,27 @@ export class CoursesPageComponent implements OnInit {
     },
   ];
 
+  filterCourseData = this.coursesData;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnChanges() { }
+
+  filterSearch(event) {
+
+    if (event === '') {
+      this.filterCourseData = this.coursesData;
+    } else {
+      let tempArr = [];
+      this.dataSearch = event;
+      tempArr = this.filterCourseData.filter((el) => {
+        if (el.caption.includes(event)) {
+          return el;
+        }
+      });
+      return this.filterCourseData = tempArr;
+    }
+
+  }
 
 }
