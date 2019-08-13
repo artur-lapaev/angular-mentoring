@@ -1,6 +1,6 @@
 export interface Course {
     id: number;
-    time: string;
+    duration: number;
     date: string;
     caption: string;
     content: string;

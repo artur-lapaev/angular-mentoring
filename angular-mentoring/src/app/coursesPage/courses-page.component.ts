@@ -16,7 +16,7 @@ export class CoursesPageComponent implements OnChanges {
   coursesData = [
     {
       id: 1,
-      time: 328,
+      duration: 328,
       date: this.date1,
       caption: 'Video Course 1. Name tag',
       content: `Learn about where you can find course descriptions, what information they
@@ -27,7 +27,7 @@ export class CoursesPageComponent implements OnChanges {
     },
     {
       id: 2,
-      time: 268,
+      duration: 268,
       date: this.date2,
       caption: 'Video Course 2. Name tag',
       content: `Learn about where you can find course descriptions, what information they
@@ -38,7 +38,7 @@ export class CoursesPageComponent implements OnChanges {
     },
     {
       id: 3,
-      time: 550,
+      duration: 550,
       date: this.date3,
       caption: 'Video Course 3. Name tag',
       content: `Learn about where you can find course descriptions, what information they
@@ -57,6 +57,7 @@ export class CoursesPageComponent implements OnChanges {
 
   filterSearch(event) {
 
+    // Use pipe here
     if (event === '') {
       this.filterCourseData = this.coursesData;
     } else {

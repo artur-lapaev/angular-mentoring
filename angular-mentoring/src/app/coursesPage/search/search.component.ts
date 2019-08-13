@@ -11,8 +11,7 @@ export class SearchComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   searchValue(value) {
     return this.valueSearch.emit(value);
