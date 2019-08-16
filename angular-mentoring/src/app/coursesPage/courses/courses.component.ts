@@ -15,6 +15,7 @@ export class CoursesComponent implements OnChanges {
 
   ngOnChanges() {
     this.course = this.courses;
+    console.log(this.course);
     console.log('on changes');
   }
 
