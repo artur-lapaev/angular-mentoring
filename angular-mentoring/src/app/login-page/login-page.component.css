@@ -1,4 +1,27 @@
 :host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1;
   background-color: #f2f3f7;
+}
+
+.login__form {
+  width: 368px;
+  height: 286px;
+  border-radius: 6px;
+  box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+  background-color: #ffffff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  height: inherit;
+  margin: 24px 23px;
+}
+
+.login__button.login__button--color-green {
+  background-color: #24d627;
 }
