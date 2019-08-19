@@ -1,3 +1,15 @@
+:host {
+  flex: 1;
+  background-color: #f2f3f7;
+}
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    background-color: #ffffff;
+    padding-right: 85px;
+    padding-left: 85px;
+}
 .courses-page__search {
     display: flex;
     margin-top: 20px;
