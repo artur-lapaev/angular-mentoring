@@ -1,19 +1,19 @@
 <div class="login__form">
   <div class="form">
     <div class="form__caption">
-     <h2>Login</h2>
+     <h2 class="caption">Login</h2>
     </div>
     <div class="form__email">
-      <label for="">Email</label>
-      <input type="email" name="" >
+      <label for="" class="form__label">Email:</label>
+      <input #email type="email" name="" class="form__input" placeholder="example@mail.com">
     </div>
     <div class="form__password">
-      <label for="">Password</label>
-      <input type="password" name="" >
+      <label for="" class="form__label">Password:</label>
+      <input #password type="password" name="" class="form__input">
     </div>
     <div class="form__button">
-      <a href="#">forgot password?</a>
-      <button mat-raised-button class="login__button login__button--color-green">Login</button>
+      <a href="#" class="form__link">forgot password?</a>
+      <button mat-raised-button class="login__button login__button--color-green" (click)="userAuthentification(email.value,password.value)">Login</button>
     </div>
   </div>
 </div>

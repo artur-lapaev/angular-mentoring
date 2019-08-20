@@ -17,9 +17,43 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: inherit;
-  height: inherit;
   margin: 24px 23px;
+}
+.form__caption .caption {
+  margin: 10px 0;
+}
+.form__email,
+.form__password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.form__label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.22px;
+  color: #525462;
+}
+.form__input {
+  height: 36px;
+  padding-left: 12px;
+  border-radius: 3px;
+  border: solid 1px #d9dbe3;
+  background-color: #ffffff;
+}
+
+.form__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form__link {
+  font-size: 14px;
 }
 
 .login__button.login__button--color-green {
