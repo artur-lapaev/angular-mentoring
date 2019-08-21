@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from '../header/auth-service.service';
 
 @Component({
   selector: 'am-login-page',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class LoginPageComponent {
 
-  constructor() { }
+  constructor(private authentification: AuthServiceService) { }
 
   userAuthentification(email, password) {
 
@@ -18,7 +19,7 @@ export class LoginPageComponent {
 
     const option = JSON.stringify(options);
 
-    localStorage.setItem('user', option);
+   this.authentification.login(option);
   }
 
 }

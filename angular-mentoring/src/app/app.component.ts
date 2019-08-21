@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from './header/auth-service.service';
 
 @Component({
   selector: 'am-root',
@@ -10,14 +11,17 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'angular-mentoring';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authentification: AuthServiceService) {}
 
   ngOnInit() {
-    const isUser = localStorage.getItem('user');
+    const isAuth = this.authentification.isAuthenticated();
 
-    if (isUser) {
+    if (isAuth) {
       this.router.navigate(['/courses']);
+    } else {
+      this.router.navigate(['/']);
     }
+
   }
 
 }
