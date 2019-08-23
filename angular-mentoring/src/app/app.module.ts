@@ -47,7 +47,7 @@ import { DeleteModalComponent } from './coursesPage/courses/delete-modal/delete-
     DeleteModalComponent
   ],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
   ],
   bootstrap: [AppComponent]
 })
