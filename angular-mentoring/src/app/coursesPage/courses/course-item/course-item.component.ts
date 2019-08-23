@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
+import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
+import { MatDialogRef, MatDialog } from '@angular/material';
 
 
 @Component({
@@ -8,8 +10,10 @@ import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 })
 export class CourseItemComponent implements OnInit {
 
+  private deleteModalRef: MatDialogRef<DeleteModalComponent>;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
+
   @Input() courseItem;
   @Output() deleteCourse = new EventEmitter<any>();
 
@@ -24,7 +28,12 @@ export class CourseItemComponent implements OnInit {
 
   removeCourse() {
     this.deleteCourse.emit('course was removed by id:');
+    this.deleteModalRef = this.dialog.open(DeleteModalComponent, {
+      data: {
+        id: `${this.courseItem.id}`,
+        nameCourse: `${this.courseItem.caption}`
+      },
+    });
   }
-
 
 }

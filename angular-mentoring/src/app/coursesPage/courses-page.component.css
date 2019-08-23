@@ -10,6 +10,12 @@
     padding-right: 85px;
     padding-left: 85px;
 }
+.courses-page__search,
+.courses-page__load-more,
+.courses-page__add-course,
+.courses-page__list-courses {
+  margin: 0 85px;
+}
 .courses-page__search {
     display: flex;
     margin-top: 20px;

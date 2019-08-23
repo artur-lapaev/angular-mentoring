@@ -8,13 +8,15 @@ import { FooterComponent } from './footer/footer.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CoursesComponent } from './coursesPage/courses/courses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MatButtonModule, MatCheckboxModule, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchComponent } from './coursesPage/search/search.component';
 import { LoadMoreComponent } from './coursesPage/load-more/load-more.component';
 import { CourseItemComponent } from './coursesPage/courses/course-item/course-item.component';
 import { BorderDateDirective } from './coursesPage/courses/course-item/border-date.directive';
 import { OrderByPipe } from './coursesPage/order-by.pipe';
+import { DeleteModalComponent } from './coursesPage/courses/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { OrderByPipe } from './coursesPage/order-by.pipe';
     CourseItemComponent,
     BorderDateDirective,
     OrderByPipe,
-    routingComponents
+    routingComponents,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +39,16 @@ import { OrderByPipe } from './coursesPage/order-by.pipe';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    OverlayModule
   ],
-  providers: [],
+  entryComponents: [
+    DeleteModalComponent
+  ],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

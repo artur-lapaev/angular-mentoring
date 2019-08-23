@@ -7,12 +7,12 @@ import { AuthServiceService } from './auth-service.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  userName: string = 'User Login';
 
   constructor(private authentification: AuthServiceService) { }
 
   logout() {
     return this.authentification.logout();
   }
-
 
 }
