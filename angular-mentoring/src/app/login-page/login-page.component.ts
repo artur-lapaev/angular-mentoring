@@ -19,7 +19,7 @@ export class LoginPageComponent {
 
     const option = JSON.stringify(options);
 
-   this.authentification.login(option);
+    this.authentification.login(option);
   }
 
 }

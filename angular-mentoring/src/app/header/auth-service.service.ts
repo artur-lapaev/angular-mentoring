@@ -18,12 +18,12 @@ export class AuthServiceService {
     this.router.navigate(['/']);
   }
 
-  getUserInfo() {
-
+  getUserInfo(): boolean {
+    return !!localStorage.getItem('user');
   }
 
   isAuthenticated(): boolean {
-    const isAuthenticated = !!localStorage.getItem('user');
+    const isAuthenticated = this.getUserInfo();
     return isAuthenticated;
   }
 

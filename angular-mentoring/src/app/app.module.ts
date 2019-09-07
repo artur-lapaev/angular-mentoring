@@ -10,6 +10,8 @@ import { CoursesComponent } from './coursesPage/courses/courses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatButtonModule, MatCheckboxModule, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchComponent } from './coursesPage/search/search.component';
 import { LoadMoreComponent } from './coursesPage/load-more/load-more.component';
@@ -17,6 +19,10 @@ import { CourseItemComponent } from './coursesPage/courses/course-item/course-it
 import { BorderDateDirective } from './coursesPage/courses/course-item/border-date.directive';
 import { OrderByPipe } from './coursesPage/order-by.pipe';
 import { DeleteModalComponent } from './coursesPage/courses/delete-modal/delete-modal.component';
+import { EditorCourseComponent } from './coursesPage/editor-course/editor-course.component';
+import { DateComponent } from './coursesPage/date/date.component';
+import { DurationComponent } from './coursesPage/duration/duration.component';
+import { DurationTransformPipe } from './coursesPage/duration/duration-transform.pipe';
 
 @NgModule({
   declarations: [
@@ -31,23 +37,30 @@ import { DeleteModalComponent } from './coursesPage/courses/delete-modal/delete-
     BorderDateDirective,
     OrderByPipe,
     routingComponents,
-    DeleteModalComponent
+    DeleteModalComponent,
+    EditorCourseComponent,
+    DateComponent,
+    DurationComponent,
+    DurationTransformPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
     MatDialogModule,
+    MatInputModule,
     OverlayModule
   ],
   entryComponents: [
-    DeleteModalComponent
+    DeleteModalComponent,
+    EditorCourseComponent
   ],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }
   ],
   bootstrap: [AppComponent]
 })

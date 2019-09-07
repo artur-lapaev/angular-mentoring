@@ -8,8 +8,7 @@
              <div class="header__time">
                  <span class="time">
                      <i class="material-icons">access_time</i>
-                     <!-- duration pipe here -->
-                     <span>{{courseItem.duration | date:'HH:MM a'}}</span>
+                     <span>{{courseItem.duration | durationTransform}}</span>
                  </span>
                  <span class="date">
                      <i class="material-icons">date_range</i>
@@ -22,9 +21,9 @@
          </section>
      </div>
      <div class="courses-section__edit-tools">
-         <button mat-raised-button class="edit-tools__edit-button edit-tools--color-blue box-shadow--none"><i
+         <button mat-raised-button (click)="openEditorCourse()" class="edit-tools__edit-button edit-tools--color-blue box-shadow--none"><i
                  class="material-icons">edit</i>Edit</button>
-         <button (click)="removeCourse()" mat-raised-button class="edit-tools__delete-button edit-tools--color-blue box-shadow--none"><i
+         <button (click)="openDeleteModalCourse()" mat-raised-button class="edit-tools__delete-button edit-tools--color-blue box-shadow--none"><i
                  class="material-icons">delete</i>Delete</button>
      </div>
  </section>

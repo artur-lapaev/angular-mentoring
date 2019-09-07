@@ -1,41 +1,55 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { CoursesServiceService } from './courses-service.service';
+import { EditorCourseComponent } from './editor-course/editor-course.component';
 
 @Component({
   selector: 'am-courses-page',
   templateUrl: './courses-page.component.html',
   styleUrls: ['./courses-page.component.css']
 })
-export class CoursesPageComponent implements OnChanges {
+export class CoursesPageComponent implements OnInit {
+  private editorCourseRef: MatDialogRef<EditorCourseComponent>;
 
   dataSearch = '';
   date1 = new Date('9 Nov, 2018');
   date2 = new Date('19 Nov, 2018');
   date3 = new Date('30 dec, 2018');
+  coursesData = [];
+  filterCourseData = [];
 
-  coursesData = this.courses.getList();
+  ngOnInit() {
+    this.coursesData = this.courses.getList();
+    this.filterCourseData = this.coursesData;
+  }
 
-  filterCourseData = this.coursesData;
+  constructor(private courses: CoursesServiceService, private dialogEditor: MatDialog) { }
 
-  constructor(private courses: CoursesServiceService) { }
-
-  ngOnChanges() { }
+  removeCourse($event) {
+    this.courses.removeItem(+$event).subscribe(data => {
+      this.coursesData = data;
+    });
+  }
 
   filterSearch(event) {
     // Use pipe here
     if (event === '') {
-      this.filterCourseData = this.coursesData;
+     return this.coursesData;
     } else {
-      let tempArr = [];
       this.dataSearch = event;
-      tempArr = this.filterCourseData.filter((el) => {
+      this.coursesData = this.filterCourseData.filter((el) => {
         if (el.caption.includes(event)) {
           return el;
         }
       });
-      return this.filterCourseData = tempArr;
     }
 
   }
 
+  openEditorCourse() {
+    this.editorCourseRef = this.dialogEditor.open(EditorCourseComponent, {
+      data: '',
+      panelClass: 'editor-modalbox'
+    });
+  }
 }

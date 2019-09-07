@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../course';
 
 @Component({
@@ -8,7 +8,7 @@ import { Course } from '../course';
 })
 export class CoursesComponent implements OnChanges {
   @Input() courses: Course;
-
+  @Output() eventDelete = new EventEmitter<number>();
   course = {};
 
   constructor() { }
@@ -18,6 +18,7 @@ export class CoursesComponent implements OnChanges {
   }
 
   removedCourse($event) {
+    this.eventDelete.emit($event);
     return console.log($event);
   }
 }

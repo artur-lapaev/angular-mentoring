@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesServiceService {
-  private subject = new Subject<any>();
+  private subject = new BehaviorSubject<string>('return');
 
   date1 = new Date('9 Nov, 2018');
   date2 = new Date('19 Nov, 2018');
@@ -14,7 +14,7 @@ export class CoursesServiceService {
   coursesList = [
     {
       id: 1,
-      duration: 328,
+      duration: 88,
       date: this.date1,
       caption: 'Video Course 1. Name tag',
       content: `Learn about where you can find course descriptions, what information they
@@ -25,7 +25,7 @@ export class CoursesServiceService {
     },
     {
       id: 2,
-      duration: 268,
+      duration: 68,
       date: this.date2,
       caption: 'Video Course 2. Name tag',
       content: `Learn about where you can find course descriptions, what information they
@@ -36,7 +36,7 @@ export class CoursesServiceService {
     },
     {
       id: 3,
-      duration: 550,
+      duration: 50,
       date: this.date3,
       caption: 'Video Course 3. Name tag',
       content: `Learn about where you can find course descriptions, what information they
@@ -46,27 +46,30 @@ export class CoursesServiceService {
       a particular semester.`
     },
   ];
-
+  deleteCourseList = this.coursesList;
   constructor() { }
 
   getList() {
     return this.coursesList;
   }
 
-  createCourse(): Observable<any> {
-    return this.subject.asObservable();
+  createCourse(): Observable<string> {
+    return this.subject;
   }
-  getItemById(): Observable<any> {
-    return this.subject.asObservable();
+  getItemById(): Observable<string> {
+    return this.subject;
   }
-  updateItem(): Observable<any> {
-    return this.subject.asObservable();
+  updateItem() {
   }
-  removeItem(item) {
-    this.coursesList.filter((el, i) => {
-      if (el.id === item) {
-        this.coursesList.splice(i, 1);
-      }
+
+  removeItem(id): Observable<Array<object>> {
+    const listCourses = new BehaviorSubject<Array<object>>([]);
+    this.deleteCourseList = this.deleteCourseList.filter((el, i) => {
+      if (el.id !== id) { return el; }
     });
+
+    listCourses.next(this.deleteCourseList);
+
+    return listCourses;
   }
 }
