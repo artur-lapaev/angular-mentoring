@@ -18,12 +18,12 @@ export class AuthServiceService {
     return user;
   }
 
-  getUserInfo(): boolean {
-    return !!localStorage.getItem('user');
+  getUserInfo() {
+    return localStorage.getItem('user');
   }
 
   isAuthenticated(): boolean {
-    const isAuthenticated = this.getUserInfo();
+    const isAuthenticated = !!this.getUserInfo();
     return isAuthenticated;
   }
 
