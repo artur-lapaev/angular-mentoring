@@ -34,3 +34,11 @@ html, body {
 .cdk-global-scrollblock {
   overflow-y: auto;
 }
+.login-valid {
+  background-color: #2cc41e;
+  color: white;
+}
+.login-not-valid {
+  background-color: #dc1919;
+  color: white;
+}
