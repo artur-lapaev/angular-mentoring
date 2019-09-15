@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { CoursesServiceService } from './courses-service.service';
 import { EditorCourseComponent } from './editor-course/editor-course.component';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BreadCrumbsService } from '../breadcrumbs/bread-crumbs.service';
+
 
 @Component({
   selector: 'am-courses-page',
@@ -9,6 +12,7 @@ import { EditorCourseComponent } from './editor-course/editor-course.component';
   styleUrls: ['./courses-page.component.css']
 })
 export class CoursesPageComponent implements OnInit {
+  private url: string;
   private editorCourseRef: MatDialogRef<EditorCourseComponent>;
 
   dataSearch = '';
@@ -18,12 +22,41 @@ export class CoursesPageComponent implements OnInit {
   coursesData = [];
   filterCourseData = [];
 
+  constructor(
+    private courses: CoursesServiceService,
+    private dialogEditor: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute,
+    private breadLink: BreadCrumbsService) { }
+
   ngOnInit() {
     this.coursesData = this.courses.getList();
     this.filterCourseData = this.coursesData;
-  }
+    this.route.params.subscribe((data) => {
+      const url = data.id;
+      if (url === 'new') {
+          this.editorCourseRef = this.dialogEditor.open(EditorCourseComponent, {
+            data: '',
+            panelClass: 'editor-modalbox'
+          });
+          this.editorCourseRef.afterClosed().subscribe(result => {
+            this.breadLink.removeLink();
+            this.router.navigate(['../'], { relativeTo: this.route });
+          });
+      } else if (+url) {
+          const course = this.courses.getItemById(+url);
+          this.editorCourseRef = this.dialogEditor.open(EditorCourseComponent, {
+            data: course,
+            panelClass: 'editor-modalbox'
+          });
+          this.editorCourseRef.afterClosed().subscribe(result => {
+            this.breadLink.removeLink();
+            this.router.navigate(['../'], { relativeTo: this.route });
+          });
+        }
+    });
 
-  constructor(private courses: CoursesServiceService, private dialogEditor: MatDialog) { }
+  }
 
   removeCourse($event) {
     this.courses.removeItem(+$event).subscribe(data => {
@@ -34,7 +67,7 @@ export class CoursesPageComponent implements OnInit {
   filterSearch(event) {
     // Use pipe here
     if (event === '') {
-     return this.coursesData;
+      return this.coursesData;
     } else {
       this.dataSearch = event;
       this.coursesData = this.filterCourseData.filter((el) => {
@@ -44,12 +77,5 @@ export class CoursesPageComponent implements OnInit {
       });
     }
 
-  }
-
-  openEditorCourse() {
-    this.editorCourseRef = this.dialogEditor.open(EditorCourseComponent, {
-      data: '',
-      panelClass: 'editor-modalbox'
-    });
   }
 }

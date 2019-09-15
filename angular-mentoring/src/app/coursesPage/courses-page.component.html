@@ -3,8 +3,8 @@
   <am-search class="search" (valueSearch)="filterSearch($event)"></am-search>
 </div>
 <div class="courses-page__add-course">
-  <button mat-raised-button (click)="openEditorCourse()" class="add-course__button add-course__button--color-blue box-shadow--none"><i
-      class="material-icons">add</i>Add course</button>
+  <a mat-raised-button routerLink="new" class="add-course__button add-course__button--color-blue box-shadow--none"><i
+      class="material-icons">add</i>Add course</a>
 </div>
 <section class="courses-page__list-courses">
   <div *ngIf="coursesData.length > 0; then thenBlock; else elseBlock;"></div>

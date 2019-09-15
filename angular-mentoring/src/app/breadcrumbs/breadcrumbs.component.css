@@ -7,3 +7,12 @@
   letter-spacing: normal;
   color: #2c2f3c;
 }
+
+.breadcrumbs__item > a {
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.breadcrumbs__item > a:not(:nth-child(1))::before {
+  content: '/ ';
+}

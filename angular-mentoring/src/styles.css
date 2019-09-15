@@ -31,3 +31,6 @@ html, body {
 .mat-form-field-underline{
   background-color:rgb(60, 63, 60) !important;
 }
+.cdk-global-scrollblock {
+  overflow-y: auto;
+}

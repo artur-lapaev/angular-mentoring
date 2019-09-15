@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, Input, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 import { MatDialogRef, MatDialog } from '@angular/material';
-import { EditorCourseComponent } from '../../editor-course/editor-course.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,9 +13,13 @@ import { EditorCourseComponent } from '../../editor-course/editor-course.compone
 export class CourseItemComponent implements OnInit {
 
   private deleteModalRef: MatDialogRef<DeleteModalComponent>;
-  private editorCourseRef: MatDialogRef<EditorCourseComponent>;
 
-  constructor(private dialog: MatDialog, private dialogEditor: MatDialog, private changeDetector: ChangeDetectorRef) { }
+  constructor(
+    private dialog: MatDialog,
+    private dialogEditor: MatDialog,
+    private changeDetector: ChangeDetectorRef,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   @Input() courseItem;
   @Output() deleteCourse = new EventEmitter<any>();
@@ -29,12 +33,7 @@ export class CourseItemComponent implements OnInit {
     }
     this.changeDetector.detectChanges();
   }
-  openEditorCourse() {
-    this.editorCourseRef = this.dialogEditor.open(EditorCourseComponent, {
-      data: this.courseItem,
-      panelClass: 'editor-modalbox'
-    });
-  }
+
   openDeleteModalCourse() {
     this.deleteModalRef = this.dialog.open(DeleteModalComponent, {
       data: {

@@ -53,11 +53,12 @@ export class CoursesServiceService {
     return this.coursesList;
   }
 
-  createCourse(): Observable<string> {
-    return this.subject;
+  createCourse(url): Observable<string> {
+    return url;
   }
-  getItemById(): Observable<string> {
-    return this.subject;
+  getItemById(id: number) {
+    const course = this.coursesList[id - 1];
+    return course;
   }
   updateItem() {
   }

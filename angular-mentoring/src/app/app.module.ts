@@ -23,6 +23,7 @@ import { EditorCourseComponent } from './coursesPage/editor-course/editor-course
 import { DateComponent } from './coursesPage/date/date.component';
 import { DurationComponent } from './coursesPage/duration/duration.component';
 import { DurationTransformPipe } from './coursesPage/duration/duration-transform.pipe';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DurationTransformPipe } from './coursesPage/duration/duration-transform
     EditorCourseComponent,
     DateComponent,
     DurationComponent,
-    DurationTransformPipe
+    DurationTransformPipe,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

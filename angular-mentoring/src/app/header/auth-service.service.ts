@@ -6,16 +6,14 @@ import { Router } from '@angular/router';
 })
 export class AuthServiceService {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   login(option) {
     localStorage.setItem('user', option);
-    this.router.navigate(['/courses']);
   }
 
   logout() {
     localStorage.removeItem('user');
-    this.router.navigate(['/']);
   }
 
   getUserInfo(): boolean {

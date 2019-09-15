@@ -21,10 +21,10 @@
          </section>
      </div>
      <div class="courses-section__edit-tools">
-         <button mat-raised-button (click)="openEditorCourse()" class="edit-tools__edit-button edit-tools--color-blue box-shadow--none"><i
-                 class="material-icons">edit</i>Edit</button>
-         <button (click)="openDeleteModalCourse()" mat-raised-button class="edit-tools__delete-button edit-tools--color-blue box-shadow--none"><i
-                 class="material-icons">delete</i>Delete</button>
+         <a mat-raised-button routerLink="{{courseItem.id}}" class="edit-tools__edit-button edit-tools--color-blue box-shadow--none"><i
+                 class="material-icons">edit</i>Edit</a>
+         <a (click)="openDeleteModalCourse()" mat-raised-button class="edit-tools__delete-button edit-tools--color-blue box-shadow--none"><i
+                 class="material-icons">delete</i>Delete</a>
      </div>
  </section>
 
