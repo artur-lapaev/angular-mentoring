@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthServiceService } from '../header/auth-service.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
   selector: 'am-login-page',

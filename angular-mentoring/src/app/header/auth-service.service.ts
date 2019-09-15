@@ -13,7 +13,10 @@ export class AuthServiceService {
   }
 
   logout() {
+    let userName = localStorage.getItem('user');
+    userName = JSON.parse(userName);
     localStorage.removeItem('user');
+    return userName;
   }
 
   getUserInfo(): boolean {
