@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +12,10 @@ export class AuthServiceService {
   }
 
   logout() {
-    let userName = localStorage.getItem('user');
-    userName = JSON.parse(userName);
+    const userString = localStorage.getItem('user');
+    const user = JSON.parse(userString);
     localStorage.removeItem('user');
-    return userName;
+    return user;
   }
 
   getUserInfo(): boolean {
