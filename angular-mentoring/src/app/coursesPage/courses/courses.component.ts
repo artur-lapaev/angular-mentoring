@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../course';
 
 @Component({
@@ -8,18 +8,17 @@ import { Course } from '../course';
 })
 export class CoursesComponent implements OnChanges {
   @Input() courses: Course;
-
+  @Output() eventDelete = new EventEmitter<number>();
   course = {};
 
   constructor() { }
 
   ngOnChanges() {
     this.course = this.courses;
-    console.log(this.course);
-    console.log('on changes');
   }
 
   removedCourse($event) {
+    this.eventDelete.emit($event);
     return console.log($event);
   }
 }

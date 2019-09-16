@@ -1,0 +1,24 @@
+.editor-course,
+.content mat-dialog-content,
+.content mat-dialog-content > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.content mat-dialog-content > div {
+  margin-bottom: 20px;
+}
+
+.content__save {
+  background-color: #9bc837;
+  color: white;
+}
+
+.content__cancel {
+  background-color: #d9dbe3;
+  margin-right: 10px;
+}
+
+.content mat-dialog-content span {
+  margin-bottom: 5px;
+}

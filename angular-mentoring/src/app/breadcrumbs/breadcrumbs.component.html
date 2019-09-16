@@ -1,1 +1,3 @@
-<div class="breadcrumbs__item">Courses</div>
+<div class="breadcrumbs__item">
+  <a *ngFor="let link of links" routerLink="{{link.routeLink}}">{{link.name}}</a>
+</div>

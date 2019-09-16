@@ -7,3 +7,38 @@ html, body {
     height: 100%;
     font-family: 'Source Sans Pro', sans-serif;
 }
+.editor-modalbox mat-dialog-container.mat-dialog-container {
+  width: 500px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 24px 0 rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+  color: #525462;
+}
+.delete-modalbox mat-dialog-container.mat-dialog-container {
+  width: 394px;
+  height: 265px;
+  border-radius: 6px;
+  box-shadow: 0 1px 24px 0 rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+  color: #525462;
+  padding: 0;
+}
+
+.mat-form-field-label{
+  color:rgb(60, 63, 60) !important;
+}
+.mat-form-field-underline{
+  background-color:rgb(60, 63, 60) !important;
+}
+.cdk-global-scrollblock {
+  overflow-y: auto;
+}
+.login-valid {
+  background-color: #2cc41e;
+  color: white;
+}
+.login-not-valid {
+  background-color: #dc1919;
+  color: white;
+}
