@@ -38,7 +38,7 @@ export class CourseItemComponent implements OnInit {
     this.deleteModalRef = this.dialog.open(DeleteModalComponent, {
       data: {
         id: `${this.courseItem.id}`,
-        nameCourse: `${this.courseItem.caption}`
+        nameCourse: `${this.courseItem.name}`
       },
       panelClass: 'delete-modalbox'
     });

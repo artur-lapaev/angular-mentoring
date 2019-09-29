@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 
 @Component({
@@ -9,6 +9,7 @@ import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
 })
 export class SearchComponent implements OnInit {
   searchValueStr = new Subject<string>();
+  valueSbscr = Subscription;
   @Output() valueSearch = new EventEmitter<any>();
   // sub1: Subscription;
   // sub2: Subscription;
@@ -28,45 +29,17 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    sub = this.searchValueStr.pipe(
+    this.searchValueStr.pipe(
       map(x => x.length <= 2 ? '' : x),
-      distinctUntilChanged((p, c) => {
-        if (c.length === 0) {
-          this.valueSearch.emit('');
-          return true;
-        }
-        if (c.length <= 2) {
-          return true;
-        }
-        return false;
-      }),
-      debounceTime(1000)
+      debounceTime(1000),
+      distinctUntilChanged(),
     ).subscribe(str => {
-      // if (str.length > 2) {
-        return this.valueSearch.emit(str);
-      // }
+      return this.valueSearch.emit(str);
     });
   }
-
-  ngOnDestroy() {
-    sub.unsubscribe();
-  }
-
 
   searchValue(value: string) {
     if (value.length > 0) { this.searchValueStr.next(value); }
   }
-
-  // TODO Move filtering logic here
-  // Cases:
-  // 1. Empty
-  // 2. Less than 3 Symbol
-  // 3. More than 3 Symbols
-  // Use https://www.learnrxjs.io/operators/filtering/distinctuntilchanged.html
-
-  // 1. Complete RX Search - MAIN - is done!!!
-  // 2. Complete server search - optional is done!!!
-  // 3. UPDATE and DELETE (http) - optional
-
 
 }

@@ -19,21 +19,21 @@ export class BreadcrumbsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe((data) => {
-      if (data.id) {
-        const course = this.courses.getItemById(data.id);
-        if (course) {
-          this.breadLinks.addLink({
-            name: course.caption,
-            routeLink: data.id
-          });
-        } else {
-          this.breadLinks.addLink({
-            name: data.id,
-            routeLink: data.id
-          });
-        }
-      }
-    });
+    // this.route.params.subscribe((data) => {
+    //   if (data.id) {
+    //     const course = this.courses.getItemById(data.id);
+    //     if (course) {
+    //       this.breadLinks.addLink({
+    //         name: course.caption,
+    //         routeLink: data.id
+    //       });
+    //     } else {
+    //       this.breadLinks.addLink({
+    //         name: data.id,
+    //         routeLink: data.id
+    //       });
+    //     }
+    //   }
+    // });
   }
 }

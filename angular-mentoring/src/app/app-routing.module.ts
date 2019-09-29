@@ -5,6 +5,7 @@ import { CoursesPageComponent } from './coursesPage/courses-page.component';
 import { EditorCourseComponent } from './coursesPage/editor-course/editor-course.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './coursesPage/auth.guard';
+import { HeaderComponent } from './header/header.component';
 
 
 const routes: Routes = [

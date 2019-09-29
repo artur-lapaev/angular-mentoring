@@ -2,13 +2,13 @@
     <div class="courses-section__content">
          <div class="content__header">
              <div class="header__caption">
-                 <h2>{{courseItem.caption}}</h2>
+                 <h2>{{courseItem.name}}</h2>
                  <i class="material-icons start-rating">{{ratingStar}}</i>
              </div>
              <div class="header__time">
                  <span class="time">
                      <i class="material-icons">access_time</i>
-                     <span>{{courseItem.duration | durationTransform}}</span>
+                     <span>{{courseItem.length | durationTransform}}</span>
                  </span>
                  <span class="date">
                      <i class="material-icons">date_range</i>
@@ -17,7 +17,7 @@
              </div>
          </div>
          <section class="content__main">
-            {{courseItem.content}}
+            {{courseItem.description}}
          </section>
      </div>
      <div class="courses-section__edit-tools">

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DeleteCourseInfoService {
   private courseId = new BehaviorSubject<number>(0);
   id = this.courseId.asObservable();

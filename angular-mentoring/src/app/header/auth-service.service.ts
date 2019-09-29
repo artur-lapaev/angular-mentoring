@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthServiceService {
+  apiUrl = environment.apiUrl;
+  isAuth: Observable<boolean>;
+  userInfo = new Subject<any>();
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  login(option) {
-    localStorage.setItem('user', option);
+  login(email, pass) {
+    const body = {
+      login: email,
+      password: pass
+    };
+    return this.http.post<any>(this.apiUrl + '/auth/login', body);
   }
 
   logout() {
-    const userString = localStorage.getItem('user');
-    const user = JSON.parse(userString);
     localStorage.removeItem('user');
-    return user;
   }
 
   getUserInfo() {
-    return localStorage.getItem('user');
+    return this.http.post<any>(this.apiUrl + '/auth/userinfo', null);
   }
 
   isAuthenticated(): boolean {
-    const isAuthenticated = !!this.getUserInfo();
-    return isAuthenticated;
+    const auth = localStorage.getItem('user');
+    return !!auth;
   }
 
 }
