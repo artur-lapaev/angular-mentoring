@@ -4,17 +4,23 @@ import { Observable, throwError } from 'rxjs';
 import { AuthServiceService } from './auth-service.service';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { Store } from '@ngrx/store';
+import { AmStore } from '../store/am-store';
 
 @Injectable()
 
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private auth: AuthServiceService, private snackBar: MatSnackBar) { }
+  constructor(private auth: AuthServiceService, private snackBar: MatSnackBar, private store: Store<AmStore>) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const url = request.url.includes('/auth/userinfo');
     if (url) {
-      // TODO Use auth service instead of localStorage
+      let token;
+      this.store.subscribe(user => {
+        token = user.login.token;
+      });
+
       const headersOpt = new HttpHeaders({
-        Authorization: localStorage.getItem('user')
+        Authorization: token
       });
       const options = request.clone({
         headers: headersOpt
@@ -22,9 +28,8 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(options);
     }
 
-    // TODO It's better to use https://angular.io/api/core/ErrorHandler
     return next.handle(request).pipe(
-      catchError( (error: HttpErrorResponse) => {
+      catchError((error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
           this.snackBar.open(`An error occurred: ${error.error.message}`, 'close', {
             duration: 3500,
@@ -33,7 +38,7 @@ export class AuthInterceptor implements HttpInterceptor {
           });
         } else {
           this.snackBar.open(`Backend returned code ${error.status}, ` +
-          `body was: ${error.error}`, 'close', {
+            `body was: ${error.error}`, 'close', {
             duration: 3500,
             panelClass: ['login-not-valid'],
             verticalPosition: 'top'

@@ -6,6 +6,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BreadCrumbsService } from '../breadcrumbs/bread-crumbs.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Store, select } from '@ngrx/store';
+import { selectListCourses } from '../store/selectors/selectors';
+import { CoursesAction } from '../store/actions/course.action';
+import { AmStore } from '../store/am-store';
 
 
 @Component({
@@ -21,18 +25,24 @@ export class CoursesPageComponent implements OnInit {
   date2 = new Date('19 Nov, 2018');
   date3 = new Date('30 dec, 2018');
   coursesData: any = [];
-
   constructor(
     private courses: CoursesServiceService,
     private dialogEditor: MatDialog,
     private router: Router,
     private route: ActivatedRoute,
     private breadLink: BreadCrumbsService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private store: Store<AmStore>) {
+      this.store.pipe(select(selectListCourses));
+    }
 
   ngOnInit() {
-    this.courses.getList().subscribe(data => {
-      this.coursesData = data;
+    this.store.subscribe(data => {
+      this.coursesData = data.courses.list;
+    });
+    // https://ngrx.io/guide/effects#ngrxeffects
+    this.courses.getList().subscribe(list => {
+         this.store.dispatch(CoursesAction({ getCourses: list }));
     });
     this.route.params.subscribe((data) => {
       const url = data.id;
@@ -64,11 +74,11 @@ export class CoursesPageComponent implements OnInit {
   }
 
   removeCourse($event) {
-   this.courses.removeItem(+$event).subscribe( data => {
-    this.courses.getList().subscribe( refreshData => {
-      this.coursesData = refreshData;
+    this.courses.removeItem(+$event).subscribe(data => {
+      this.courses.getList().subscribe(refreshData => {
+        this.coursesData = refreshData;
+      });
     });
-   });
   }
 
   filterSearch(queryStr) {

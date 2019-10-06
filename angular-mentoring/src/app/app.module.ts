@@ -28,7 +28,8 @@ import { DurationTransformPipe } from './coursesPage/duration/duration-transform
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthInterceptor } from './header/auth-interceptor';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { authReducer } from './store/reducers/auth.reducer';
+import { coursesReducer } from './store/reducers/course.reducer';
 
 @NgModule({
   declarations: [
@@ -63,12 +64,9 @@ import { reducers, metaReducers } from './reducers';
     MatDialogModule,
     MatInputModule,
     OverlayModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
+    StoreModule.forRoot({
+      login: authReducer,
+      courses: coursesReducer
     })
   ],
   entryComponents: [
