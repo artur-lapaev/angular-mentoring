@@ -33,16 +33,18 @@ export class CoursesPageComponent implements OnInit {
     private breadLink: BreadCrumbsService,
     private http: HttpClient,
     private store: Store<AmStore>) {
-      this.store.pipe(select(selectListCourses));
-    }
+    this.store.pipe(select(selectListCourses));
+  }
 
   ngOnInit() {
     this.store.subscribe(data => {
-      this.coursesData = data.courses.list;
+      this.coursesData = data.courses.coursesList;
     });
-    // https://ngrx.io/guide/effects#ngrxeffects
+
     this.courses.getList().subscribe(list => {
-         this.store.dispatch(CoursesAction({ getCourses: list }));
+      const userList = [];
+      userList.push(list);
+      this.store.dispatch(CoursesAction({ getCourses: userList[0] }));
     });
     this.route.params.subscribe((data) => {
       const url = data.id;

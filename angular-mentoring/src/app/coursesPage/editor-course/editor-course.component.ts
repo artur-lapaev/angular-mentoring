@@ -3,7 +3,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Course } from '../course';
 import { CoursesServiceService } from '../courses-service.service';
 
 
@@ -32,7 +31,7 @@ export class EditorCourseComponent {
     const dataCourse = this.data;
     const duration = +this.newDurationCourse || this.courseDuration;
     const date = this.courseDate ? this.courseDate : this.transformDate(this.newDateCourse);
-    const course: Course = this.prepareCourse(dataCourse.id, dataCourse.authors, nameCourse, descCourse, date, duration);
+    const course = this.prepareCourse(dataCourse.id, dataCourse.authors, nameCourse, descCourse, date, duration);
 
     const action = Object.keys(dataCourse).length !== 0 ? this.course.updateItem(course) : this.course.createCourse(course);
 

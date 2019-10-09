@@ -11,19 +11,19 @@ export class CoursesServiceService {
   constructor(private http: HttpClient) { }
 
   getList() {
-    return this.http.get<Course[]>(this.apiUrl + '/courses', { responseType: 'json' });
+    return this.http.get(this.apiUrl + '/courses', { responseType: 'json' });
   }
 
-  createCourse(course: Course) {
-    return this.http.post<Course>(this.apiUrl + '/courses', course);
+  createCourse(course) {
+    return this.http.post(this.apiUrl + '/courses', course);
   }
 
   getItemById(id: string) {
     return this.http.get<{}>(this.apiUrl + `/courses/${id}`, { responseType: 'json' });
   }
 
-  updateItem(course: Course) {
-     return this.http.put<Course>(this.apiUrl + `/courses/${course.id}`, course);
+  updateItem(course) {
+     return this.http.put(this.apiUrl + `/courses/${course.id}`, course);
   }
 
   removeItem(id) {
