@@ -1,7 +1,7 @@
 <div class="login__form">
   <div class="form">
     <div class="form__caption">
-     <h2 class="caption">Login</h2>
+      <h2 class="caption">Login</h2>
     </div>
     <div class="form__email">
       <label for="" class="form__label">Login:</label>
@@ -13,7 +13,8 @@
     </div>
     <div class="form__button">
       <a href="#" class="form__link">forgot password?</a>
-      <button mat-raised-button class="login__button login__button--color-green" (click)="userAuthentification(email.value,password.value)">Login</button>
+      <button [disabled]="!loginForm.valid" mat-raised-button class="login__button login__button--color-green"
+        (click)="userAuthentification(email.value,password.value)">Login</button>
     </div>
   </div>
 </div>

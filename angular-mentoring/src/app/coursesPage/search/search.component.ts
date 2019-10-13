@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { distinctUntilChanged, debounceTime, map } from 'rxjs/operators';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'am-search',
@@ -11,21 +12,7 @@ export class SearchComponent implements OnInit {
   searchValueStr = new Subject<string>();
   valueSbscr = Subscription;
   @Output() valueSearch = new EventEmitter<any>();
-  // sub1: Subscription;
-  // sub2: Subscription;
-  // sub3: Subscription;
-
-  // 1
-  // subscriptions: Subscription[];
-  // subscriptions.push()
-
-  // 2
-  // destroyed = new Subject
-
-  // onDestroy() { destroyed.next() }
-  // this.searchValueStr.pipe(
-  //   takeUntil(destroyed))
-
+  searchForm = new FormControl('', [Validators.required]);
   constructor() { }
 
   ngOnInit() {
@@ -36,6 +23,8 @@ export class SearchComponent implements OnInit {
     ).subscribe(str => {
       return this.valueSearch.emit(str);
     });
+
+    this.searchForm.valueChanges.subscribe(value => console.log(value));
   }
 
   searchValue(value: string) {

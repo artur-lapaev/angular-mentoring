@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../header/auth-service.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';

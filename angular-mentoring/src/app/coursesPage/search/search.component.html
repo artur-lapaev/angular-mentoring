@@ -1,4 +1,5 @@
 <div class="search__input">
     <i class="material-icons">search</i>
+    <mat-error *ngIf="!searchForm.valid">No data for searching</mat-error>
     <input #searchInput type="search" placeholder="Text to search" (keyup)="searchValue(searchInput.value)" >
 </div>
