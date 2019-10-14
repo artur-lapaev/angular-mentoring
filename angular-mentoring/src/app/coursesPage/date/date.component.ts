@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'am-date',
@@ -6,12 +6,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./date.component.css']
 })
 
-export class DateComponent implements OnInit {
-
+export class DateComponent {
   @Input() date: string;
+  @Output() dateCourse = new EventEmitter<string>();
   constructor() { }
 
-  ngOnInit() {
+  returnDateCourse(date) {
+    this.dateCourse.emit(date);
   }
-
 }

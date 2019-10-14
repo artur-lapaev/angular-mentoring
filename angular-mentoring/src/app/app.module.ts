@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,10 @@ import { DateComponent } from './coursesPage/date/date.component';
 import { DurationComponent } from './coursesPage/duration/duration.component';
 import { DurationTransformPipe } from './coursesPage/duration/duration-transform.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthInterceptor } from './header/auth-interceptor';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './store/reducers/auth.reducer';
+import { coursesReducer } from './store/reducers/course.reducer';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -57,14 +63,19 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatIconModule,
     MatDialogModule,
     MatInputModule,
-    OverlayModule
+    OverlayModule,
+    StoreModule.forRoot({
+      login: authReducer,
+      courses: coursesReducer
+    })
   ],
   entryComponents: [
     DeleteModalComponent,
     EditorCourseComponent
   ],
   providers: [
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { AuthServiceService } from '../header/auth-service.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { User } from '../header/user';
+import { Store, select } from '@ngrx/store';
+import { login } from '../store/actions/auth.action';
+import { AmStore } from '../store/am-store';
+import { selectLoginToken } from '../store/selectors/selectors';
 
 @Component({
   selector: 'am-login-page',
@@ -10,34 +15,32 @@ import { MatSnackBar } from '@angular/material';
 })
 
 export class LoginPageComponent {
-
+  user: User;
   constructor(
     private authentification: AuthServiceService,
     private router: Router,
-    private snackBar: MatSnackBar) { }
-
-  userAuthentification(email, password) {
-    if (!!email && !!password) {
-      const options = {
-        userEmail: email,
-        userPassword: password
-      };
-
-      const option = JSON.stringify(options);
-      this.authentification.login(option);
-      this.snackBar.open(`Wellcome ${options.userEmail}!!`, 'close', {
-        duration: 2500,
-        panelClass: ['login-valid'],
-        verticalPosition: 'top'
-      });
-      this.router.navigate(['/courses']);
-    } else {
-      this.snackBar.open('Enter a email and password', 'close', {
-        duration: 2500,
-        panelClass: ['login-not-valid'],
-        verticalPosition: 'top'
-      });
-    }
+    private snackBar: MatSnackBar,
+    private store: Store<AmStore>) {
+    this.store.pipe(select(selectLoginToken));
   }
 
+  userAuthentification(email, password) {
+    this.authentification.login(email, password).subscribe(userToken => {
+
+      this.store.dispatch(login({ userToken: userToken.token }));
+      this.authentification.getUserInfo().subscribe(user => {
+        this.user = user;
+        this.authentification.userInfo.next(user);
+        this.snackBar.open(`Wellcome ${this.user.name.first} ${this.user.name.last}!!`, 'close', {
+          duration: 2500,
+          panelClass: ['login-valid'],
+          verticalPosition: 'top'
+        });
+        this.router.navigate(['/courses']);
+      });
+    });
+  }
+  getUser() {
+    return this.user;
+  }
 }

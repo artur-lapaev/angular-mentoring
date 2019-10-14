@@ -1,6 +1,5 @@
 import { Component, Inject, Output, EventEmitter } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CoursesServiceService } from '../../courses-service.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DeleteCourseInfoService } from './delete-course-info.service';
 
 
@@ -16,10 +15,7 @@ export class DeleteModalComponent {
   constructor(
     private dialogRef: MatDialogRef<DeleteModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private deleteCourseInfo: DeleteCourseInfoService,
-    // It would be better to use ecents here and pass delete event upd to courses page
-    // create new services for pass delete event
-    private course: CoursesServiceService) { }
+    private deleteCourseInfo: DeleteCourseInfoService) { }
 
   close() {
     this.dialogRef.close();
