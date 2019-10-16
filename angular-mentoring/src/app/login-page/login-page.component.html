@@ -1,20 +1,20 @@
-<div class="login__form">
+<form class="login__form" [formGroup]="loginForm">
   <div class="form">
     <div class="form__caption">
       <h2 class="caption">Login</h2>
     </div>
     <div class="form__email">
-      <label for="" class="form__label">Login:</label>
-      <input #email type="email" name="" class="form__input" placeholder="Type your login">
+      <label for="" class="form__label">{{ 'Login.login' | translate }}</label>
+      <input formControlName="login" #email type="email" class="form__input" placeholder="Type your login">
     </div>
     <div class="form__password">
-      <label for="" class="form__label">Password:</label>
-      <input #password type="password" name="" class="form__input">
+      <label for="" class="form__label">{{ 'Login.password' | translate }}</label>
+      <input formControlName="password" #password type="password" class="form__input">
     </div>
     <div class="form__button">
-      <a href="#" class="form__link">forgot password?</a>
+      <a href="#" class="form__link">{{ 'Login.forgotPassword' | translate }}</a>
       <button [disabled]="!loginForm.valid" mat-raised-button class="login__button login__button--color-green"
-        (click)="userAuthentification(email.value,password.value)">Login</button>
+        (click)="userAuthentification(email.value,password.value)">{{ 'Login.enter' | translate }}</button>
     </div>
   </div>
-</div>
+</form>

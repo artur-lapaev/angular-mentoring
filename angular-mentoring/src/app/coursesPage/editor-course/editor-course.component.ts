@@ -34,7 +34,8 @@ export class EditorCourseComponent implements OnInit {
   ngOnInit() {
     this.editorForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.maxLength(50)]],
-      description: ['', [Validators.required, Validators.maxLength(500)]]
+      description: ['', [Validators.required, Validators.maxLength(500)]],
+      dateCourse: ['', [Validators.required]]
     });
   }
 
@@ -46,8 +47,13 @@ export class EditorCourseComponent implements OnInit {
     return this.editorForm.get('description');
   }
 
+  get dateCourse() {
+    return this.editorForm.get('dateCourse');
+  }
+
+
   save(nameCourse, descCourse) {
-    //const dataCourse = this.data;
+    // const dataCourse = this.data;
     const duration = +this.newDurationCourse || this.courseDuration;
     const date = this.courseDate ? this.courseDate : this.transformDate(this.newDateCourse);
 

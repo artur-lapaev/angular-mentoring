@@ -1,28 +1,43 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { FormControl, Validators, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 
 @Component({
   selector: 'am-date',
   templateUrl: './date.component.html',
   styleUrls: ['./date.component.css'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => DateComponent),
-      multi: true
-    }
-  ]
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => DateComponent),
+    multi: true
+  },
+  {
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => DateComponent),
+    multi: true
+  }]
 })
-export class DateComponent extends ControlValueAccessor {
+export class DateComponent implements ControlValueAccessor, Validators {
+
+  constructor() { }
   @Input() date: string;
   @Output() dateCourse = new EventEmitter<string>();
 
-  dateForm = new FormControl('', [Validators.required, Validators.pattern('[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]')]);
+  value: string;
+  //  dateForm = new FormControl('', [Validators.required, Validators.pattern('[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]')]);
+  onChange: (value) => void;
+  onTouched: () => void;
 
-  constructor() { }
-
-  returnDateCourse(date) {
-    this.dateCourse.emit(date);
+  writeValue(value: any): void {
+    this.value = value ? value : '';
+  }
+  registerOnChange(fn: (_: any) => void): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  returnDateCourse(dateValue) {
+    this.writeValue(dateValue);
+    this.dateCourse.emit(dateValue);
   }
 }

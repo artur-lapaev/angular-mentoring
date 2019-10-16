@@ -1,6 +1,4 @@
 <mat-form-field>
-    <mat-error *ngIf="!dateForm.valid">
-        Date is not valid
-      </mat-error>
-  <input [formControl]="dateForm" #dateCourse type="text" (blur)="returnDateCourse(dateCourse.value)" value="{{this.date | date: 'dd.MM.yyyy'}}" placeholder="Date:" matInput>
+  <!-- <input #dateCourse type="text" (blur)="returnDateCourse(dateCourse.value)" value="{{this.date | date: 'dd.MM.yyyy'}}" placeholder="Date:" matInput> -->
+  <input #dateCourse type="text" (blur)="onTouched()" (change)="onChange($event.target.value)" [value]="value" placeholder="Date:" matInput>
 </mat-form-field>

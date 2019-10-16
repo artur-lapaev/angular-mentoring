@@ -1,3 +1,5 @@
+<h1> Value: {{dateCourse.value}} </h1>
+<h1> Error: {{dateCourse.hasError('requred')}} </h1>
 <form class="editor-course" [formGroup]="editorForm">
   <div class="editor-course__content">
     <div class="content">
@@ -20,8 +22,11 @@
           </mat-form-field>
         </div>
         <div class="content__date">
-          <!-- <am-date formControlName="courseDate"></am-date> -->
-          <am-date [date]="courseDate" (dateCourse)="setDateCourse($event)"></am-date>
+          <am-date formControlName="dateCourse"></am-date>
+          <mat-error *ngIf="!dateCourse.valid">
+            Date is requred
+          </mat-error>
+          <!-- <am-date [date]="courseDate" (dateCourse)="setDateCourse($event)"></am-date> -->
         </div>
         <div class="content__duration">
           <!-- <am-duration formControlName="courseDuration"></am-duration> -->

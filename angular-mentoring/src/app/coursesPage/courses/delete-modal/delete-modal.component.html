@@ -1,22 +1,22 @@
 <div class="modal__header">
   <div class="header__caption">
-    <h2 mat-dialog-title>Delete Course</h2>
+    <h2 mat-dialog-title>{{'course.popupDelete.caption' | translate}}</h2>
   </div>
   <div class="header__close-button">
     <button (click)="close()" class="close-button" mat-icon-button><i class="material-icons">
-        close
+        {{'course.popupDelete.close' | translate}}
       </i></button>
   </div>
 </div>
 <div class="model__content">
   <div class="content__caption">
     <mat-dialog-content>
-      <p>Are you sure you want to delete</p>
+      <p>{{'course.popupDelete.message' | translate}}</p>
       <p>{{data.nameCourse}} ?</p>
     </mat-dialog-content>
   </div>
   <mat-dialog-actions class="content__buttons">
-    <button (click)="close()" class="content__cancel" mat-dialog-close mat-button>Cancel</button>
-    <button (click)="delete()" class="content__delete" mat-button>Yes, delete</button>
+    <button (click)="close()" class="content__cancel" mat-dialog-close mat-button>{{'course.popupDelete.cancel' | translate}}</button>
+    <button (click)="delete()" class="content__delete" mat-button>{{'course.popupDelete.yes' | translate}}</button>
   </mat-dialog-actions>
 </div>

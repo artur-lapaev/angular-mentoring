@@ -1,0 +1,22 @@
+{
+    "Login": {
+        "login": "Login",
+        "password": "Password",
+        "forgotPassword": "forgot password?",
+        "enter": "Login"
+    },
+    "course": {
+        "addCourse": "Add course",
+        "edit": "Edit",
+        "delete": "Delete",
+        "noData": "No Data, feel free to add new course",
+        "searchText": "Text to search",
+        "popupDelete": {
+            "caption": "Delete Course",
+            "yes": "Yes, delete",
+            "cancel": "Cancel",
+            "message": "Are you sure you want to delete"
+        }
+    }
+
+}
