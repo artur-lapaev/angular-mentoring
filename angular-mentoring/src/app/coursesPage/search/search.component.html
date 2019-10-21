@@ -1,4 +1,4 @@
-<div class="search__input">
+<div class="search__input" [formGroup]="searchForm">
     <i class="material-icons">search</i>
-    <input #searchInput type="search" placeholder="Text to search" (keyup)="searchValue(searchInput.value)" >
+    <input formControlName="searchInput" #searchValue type="search" placeholder="{{'course.searchText' | translate}}">
 </div>

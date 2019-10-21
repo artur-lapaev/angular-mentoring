@@ -1,28 +1,43 @@
-<div class="editor-course">
+<h1> Value: {{dateCourse.value}} </h1>
+<h1> Error: {{dateCourse.hasError('requred')}} </h1>
+<form class="editor-course" [formGroup]="editorForm">
   <div class="editor-course__content">
     <div class="content">
       <mat-dialog-content>
         <div class="content__title">
           <mat-form-field>
-            <input #name value="{{data.name}}" type="text" placeholder="Title:" matInput>
+            <mat-error *ngIf="!title.valid">
+              Title is requred
+            </mat-error>
+            <input formControlName="title" #name value="{{data.name}}" type="text" placeholder="Title:" matInput>
           </mat-form-field>
         </div>
         <div class="content__desc">
           <mat-form-field>
-            <textarea #desc value="{{data.description}}" cols="30" rows="3" placeholder="Description:" matInput></textarea>
+              <mat-error *ngIf="!description.valid">
+                  Description is requred
+                </mat-error>
+            <textarea formControlName="description" #desc value="{{data.description}}" cols="30" rows="3"
+              placeholder="Description:" matInput></textarea>
           </mat-form-field>
         </div>
         <div class="content__date">
-          <am-date [date]="courseDate" (dateCourse)="setDateCourse($event)"></am-date>
+          <am-date formControlName="dateCourse"></am-date>
+          <mat-error *ngIf="!dateCourse.valid">
+            Date is requred
+          </mat-error>
+          <!-- <am-date [date]="courseDate" (dateCourse)="setDateCourse($event)"></am-date> -->
         </div>
         <div class="content__duration">
+          <!-- <am-duration formControlName="courseDuration"></am-duration> -->
           <am-duration [duration]="courseDuration" (durationCourse)="setDurationCourse($event)"></am-duration>
         </div>
       </mat-dialog-content>
     </div>
     <mat-dialog-actions class="content__buttons">
-      <button (click)="save(name.value, desc.value)" class="content__save" mat-button>Save</button>
+      <button [disabled]="!editorForm.valid" (click)="save(name.value, desc.value)" class="content__save"
+        mat-button>Save</button>
       <button (click)="close()" class="content__cancel" mat-dialog-close mat-button>Cancel</button>
     </mat-dialog-actions>
   </div>
-</div>
+</form>

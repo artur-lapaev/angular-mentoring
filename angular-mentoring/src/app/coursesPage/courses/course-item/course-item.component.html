@@ -22,9 +22,9 @@
      </div>
      <div class="courses-section__edit-tools">
          <a mat-raised-button routerLink="{{courseItem.id}}" class="edit-tools__edit-button edit-tools--color-blue box-shadow--none"><i
-                 class="material-icons">edit</i>Edit</a>
+                 class="material-icons">edit</i>{{'course.edit' | translate}}</a>
          <a (click)="openDeleteModalCourse()" mat-raised-button class="edit-tools__delete-button edit-tools--color-blue box-shadow--none"><i
-                 class="material-icons">delete</i>Delete</a>
+                 class="material-icons">delete</i>{{'course.delete' | translate}}</a>
      </div>
  </section>
 

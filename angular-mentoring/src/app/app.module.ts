@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -30,6 +33,10 @@ import { AuthInterceptor } from './header/auth-interceptor';
 import { StoreModule } from '@ngrx/store';
 import { authReducer } from './store/reducers/auth.reducer';
 import { coursesReducer } from './store/reducers/course.reducer';
+
+export function HttpLoaderFactor(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -64,6 +71,14 @@ import { coursesReducer } from './store/reducers/course.reducer';
     MatDialogModule,
     MatInputModule,
     OverlayModule,
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactor,
+        deps: [HttpClient]
+      }
+    }),
     StoreModule.forRoot({
       login: authReducer,
       courses: coursesReducer

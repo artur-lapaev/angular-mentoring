@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AuthServiceService } from './auth-service.service';
+import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
@@ -15,11 +16,22 @@ export class HeaderComponent implements OnInit {
     private authentification: AuthServiceService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private changeDetection: ChangeDetectorRef) {}
+    private changeDetection: ChangeDetectorRef,
+    public translate: TranslateService) {
+    const browserLang = translate.getBrowserLang();
+    if (browserLang === 'ru') {
+      translate.addLangs(['ru', 'en']);
+    } else {
+      translate.addLangs(['en', 'ru']);
+    }
+    translate.setDefaultLang('en');
+
+    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+  }
   ngOnInit() {
-   this.authentification.userInfo.subscribe( user => {
-    this.userName = `${user.name.first}  ${user.name.last}`;
-   });
+    this.authentification.userInfo.subscribe(user => {
+      this.userName = `${user.name.first}  ${user.name.last}`;
+    });
   }
   logout() {
     this.authentification.logout();
